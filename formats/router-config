@@ -1,0 +1,114 @@
+
+Last configuration change at 23:52:29 UTC Sat Nov 3 2022 by leonuz
+
+version 15.5
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+no platform punt-keepalive disable-kernel-core
+platform console auto
+
+hostname routerPWN
+
+boot-start-marker
+boot-end-marker
+
+
+enable secret 8 $8$uazfxavvplFUvE$Ms16BRtAFP9cdjqf240xdHgcddNxS.V39W6zy7jz3tc
+enable password 7 06140A24404C001E031E0103
+
+no aaa new-model
+
+
+
+no ip domain lookup
+ip domain ........name threatsims.com
+
+
+subscriber templating
+
+multilink bundle-name authenticated
+
+license udi pid CSR1000V sn 9MFFZXHAKZ4
+license boot level ax
+spanning-tree extend system-id
+
+username zzyzzx privilege 15 secret 5 $1$qdkB$TJp7PCYE.5UWYce9GyElJ0
+username rayhan privilege 14 secret 9 $9$sBkPUtoEWx6hxl$cU3orT6Y9btuI98Abtyy4ROKbplFBnVMnDEuXI9gF1E
+username nopresearcher privilege 13 secret 8 $8$F7r5WI6TqGgzSp$.qEAqn654NQn0PPjn8pAKK9jnxND5vuyoXlKjepJl0o
+
+redundancy
+
+ip ssh port 2222 rotary 1
+ip rcmd rsh-enable
+
+interface GigabitEthernet1
+ ip address 10.13.37.100 255.255.255.0
+ standby 1 ip 10.13.37.101
+ standby 1 timers 5 15
+ standby 1 preempt
+ standby 1 authentication md5 key-string 7 094F4F1D1A0D45404F
+ standby 1 name thebruceleeband
+ negotiation auto
+ no mop enabled
+
+interface GigabitEthernet2
+ no ip address
+ shutdown
+ negotiation auto
+
+interface GigabitEthernet3
+ no ip address
+ shutdown
+ negotiation auto
+
+virtual-........service csr_mgmt
+
+ip default-gateway 10.13.37.1
+ip forward-protocol nd
+
+no ip http server
+ip http authentication local
+ip http secure-server
+
+snmp-server community skatalites31 RO
+snmp-server community Madness RW
+
+tftp-server flash 1
+tftp-server bootflash:startup-config
+
+control-plane
+
+privilege exec level 9 telnet
+!
+line con 0
+ privilege level 5
+ password 7 011217115A09071B321D1C
+ login
+line vty 0
+ password 7 153A0E1C272B3F75716764
+ login local
+ transport input telnet
+line vty 1........
+ privilege level 5
+ password 7 153A0E1C272B3F75716764
+ login local
+ length 0
+ transport input rlogin
+line vty 2
+ password 7 153A0E1C272B3F75716764
+ login local
+ transport input telnet
+line vty 3
+ privilege level 11
+ password 7 153A0E1C272B3F75716764
+ login local
+ transport input telnet
+line vty 4
+ password 7 153A0E1C272B3F75716764
+ login local
+ rotary 1
+ transport input ssh
+
+
+end

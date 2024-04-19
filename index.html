@@ -1,230 +1,119 @@
 <!doctype html>
-<html>
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <style>
-    html {
-        background-color: grey;
-        color: white;
-        overflow: hidden;
-        height: 100%;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        font-size: medium;
-    }
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-692DKSL94F"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    .error {
-        text-align: center;
-        font-family: 'Gilda Display', serif;
-
-        width: 100%;
-        height: 120px;
-        margin: auto;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: -60px;
-        right: 0;
-        -webkit-animation: noise-3 1s linear infinite;
-        animation: noise-3 1s linear infinite;
-    }
-
-    body:after {
-        content: 'Defense Security LLC';
-        font-size: 100px;
-
-        text-align: center;
-        width: 550px;
-        margin: auto;
-        position: absolute;
-        top: 25%;
-        bottom: 0;
-        left: 0;
-        right: 35%;
-        opacity: 0;
-        color: white;
-        -webkit-animation: noise-1 .2s linear infinite;
-        animation: noise-1 .2s linear infinite;
-    }
-
-    body:before {
-        content: 'Defense Security LLC';
-        font-size: 100px;
-
-        text-align: center;
-        width: 550px;
-        margin: auto;
-        position: absolute;
-        top: 25%;
-        bottom: 0;
-        left: 0;
-        right: 35%;
-        opacity: 0;
-        color: white;
-        -webkit-animation: noise-2 .2s linear infinite;
-        animation: noise-2 .2s linear infinite;
-    }
-
-    @-webkit-keyframes noise-1 {
-        0%, 20%, 40%, 60%, 70%, 90% {
-            opacity: 0;
-        }
-        10% {
-            opacity: .1;
-        }
-        50% {
-            opacity: .5;
-            left: -16px;
-        }
-        80% {
-            opacity: .3;
-        }
-        100% {
-            opacity: .6;
-            left: 2px;
-        }
-    }
-
-    @keyframes noise-1 {
-        0%, 20%, 40%, 60%, 70%, 90% {
-            opacity: 0;
-        }
-        10% {
-            opacity: .1;
-        }
-        50% {
-            opacity: .5;
-            left: -16px;
-        }
-        80% {
-            opacity: .3;
-        }
-        100% {
-            opacity: .6;
-            left: 2px;
-        }
-    }
-
-    @-webkit-keyframes noise-2 {
-        0%, 20%, 40%, 60%, 70%, 90% {
-            opacity: 0;
-        }
-        10% {
-            opacity: .1;
-        }
-        50% {
-            opacity: .5;
-            left: 16px;
-        }
-        80% {
-            opacity: .3;
-        }
-        100% {
-            opacity: .6;
-            left: -2px;
-        }
-    }
-
-    @keyframes noise-2 {
-        0%, 20%, 40%, 60%, 70%, 90% {
-            opacity: 0;
-        }
-        10% {
-            opacity: .1;
-        }
-        50% {
-            opacity: .5;
-            left: 16px;
-        }
-        80% {
-            opacity: .3;
-        }
-        100% {
-            opacity: .6;
-            left: -2px;
-        }
-    }
-
-    @-webkit-keyframes noise {
-        0%, 3%, 5%, 42%, 44%, 100% {
-            opacity: 1;
-            -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-        }
-        4.3% {
-            opacity: 1;
-            -webkit-transform: scaleY(1.7);
-            transform: scaleY(1.7);
-        }
-        43% {
-            opacity: 1;
-            -webkit-transform: scaleX(1.5);
-            transform: scaleX(1.5);
-        }
-    }
-
-    @keyframes noise {
-        0%, 3%, 5%, 42%, 44%, 100% {
-            opacity: 1;
-            -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-        }
-        4.3% {
-            opacity: 1;
-            -webkit-transform: scaleY(1.7);
-            transform: scaleY(1.7);
-        }
-        43% {
-            opacity: 1;
-            -webkit-transform: scaleX(1.5);
-            transform: scaleX(1.5);
-        }
-    }
-
-    @-webkit-keyframes noise-3 {
-        0%, 3%, 5%, 42%, 44%, 100% {
-            opacity: 1;
-            -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-        }
-        4.3% {
-            opacity: 1;
-            -webkit-transform: scaleY(4);
-            transform: scaleY(4);
-        }
-        43% {
-            opacity: 1;
-            -webkit-transform: scaleX(10) rotate(60deg);
-            transform: scaleX(10) rotate(60deg);
-        }
-    }
-
-    @keyframes noise-3 {
-        0%, 3%, 5%, 42%, 44%, 100% {
-            opacity: 1;
-            -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-        }
-        4.3% {
-            opacity: 1;
-            -webkit-transform: scaleY(4);
-            transform: scaleY(4);
-        }
-        43% {
-            opacity: 1;
-            -webkit-transform: scaleX(10) rotate(60deg);
-            transform: scaleX(10) rotate(60deg);
-        }
-    }
-
-    span {
-        font-size: 32px;
-    }
-</style>
+        gtag('config', 'G-692DKSL94F');
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Defense Security main site @leonuz">
+    <title>Defense Security LLC</title>
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<div class="error">
-    <span>Defense Security LLC</span>
+<body>
+
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="">Defense Security LLC</a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-heading"><a href="mailto:info@knowdefend.com" class="pure-menu-link">info@knowdefend.com</a> </li>
+        </ul>
+    </div>
+</div>
+    
+<div class="splash-container">
+    <div class="splash">
+       <!-- <h1 class="splash-head"></h1> -->
+        <div class="error">
+            <span>Defense Security</span>
+        </div>
+        <p class="splash-subhead">
+            Cybersecurity Awareness, Consulting and Training.
+        </p>
+        </div>
 </div>
 
-</body></html>
+<div class="content-wrapper">
+    <div class="content">
+        <h2 class="content-head is-center">Enhancing Cybersecurity Posture</h2>
+
+        <div class="pure-g">
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                <h3 class="content-subhead">
+                    <i class="fa fa-rocket"></i>
+                    Vulnerability Assessments
+                </h3>
+                <p class="splash-parrafing">
+                    Involve identifying, quantifying, and prioritizing vulnerabilities in a system, network, or application. This process typically includes scanning for known vulnerabilities, analyzing system configurations, and assessing potential weaknesses that could be exploited by attackers. The goal is to proactively identify and mitigate security risks before they can be exploited.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-exclamation-triangle"></i>
+                    Penetration Testing 
+                </h3>
+                <p class="splash-parrafing">
+                    Is a simulated cyberattack on a computer system, network, or application to identify security weaknesses that could be exploited by malicious hackers. Unlike vulnerability assessments, which focus on identifying weaknesses, penetration testing attempts to exploit vulnerabilities to assess the effectiveness of existing security controls and measures. The results help organizations understand their security posture and prioritize remediation efforts.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-th-large"></i>
+                    Phishing
+                </h3>
+                <p class="splash-parrafing">
+                    is a type of cyber attack where attackers use deceptive emails, websites, or other communication methods to trick individuals into providing sensitive information such as usernames, passwords, or financial data. Phishing attacks often impersonate legitimate entities or organizations to lure victims into clicking on malicious links or downloading malicious attachments. Phishing assessments involve testing an organization's susceptibility to such attacks and implementing measures to prevent and detect phishing attempts.
+                </p>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <h3 class="content-subhead">
+                    <i class="fa fa-check-square-o"></i>
+                    Incident Response
+                </h3>
+                <p class="splash-parrafing">
+                    Is the process of managing and mitigating security incidents, such as data breaches, cyber attacks, or unauthorized access attempts. It involves preparing for potential incidents, detecting and analyzing security threats, containing the impact of incidents, and recovering from them. Incident response services may include developing incident response plans, establishing communication protocols, conducting forensic investigations, and coordinating with relevant stakeholders to minimize the impact of security incidents.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="ribbon l-box-lrg pure-g">
+        <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+            <img width="300" alt="File Icons" class="pure-img-responsive" src="img/pilot.jpg">
+        </div>
+        <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+
+            <h3 class="content-head content-head-ribbon">know defend</h3>
+
+            <p>
+                <div class="box_nome">If we know how to defend ourselves we will never be defeated.</div>
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <div class="wrapper large-wrap"> 
+            <h1 data-text="Your Cybersecurity Partner"  class="gigantic bold montserrat ls-medium uppercase text-overlay">
+                <p style="font-size:10vw;">Defense Security</p>
+            </h1>
+        </div>
+    </div>
+        
+    <div class="footer l-box is-center">
+        Copyright @DefenseSecurity 2024 - KnowDefend its a trademark of Defense Security LLC.
+    </div>
+
+</div>
+
+</body>
+</html>

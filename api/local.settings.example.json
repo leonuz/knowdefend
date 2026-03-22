@@ -1,0 +1,23 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "APP_BASE_URL": "http://127.0.0.1:4173",
+    "RESEND_API_KEY": "re_xxx",
+    "RESEND_FROM_EMAIL": "Defense Security <noreply@yourdomain.com>",
+    "CONTACT_TO_EMAIL": "info@knowdefend.com",
+    "COSMOS_DB_ENDPOINT": "https://your-account.documents.azure.com:443/",
+    "COSMOS_DB_KEY": "your-key",
+    "COSMOS_DB_DATABASE": "knowdefend",
+    "COSMOS_DB_CONTAINER_USERS": "users",
+    "COSMOS_DB_CONTAINER_AUTH": "auth",
+    "COSMOS_DB_CONTAINER_LEADS": "leads",
+    "COSMOS_DB_CONTAINER_DOCUMENTS": "documents",
+    "SESSION_COOKIE_NAME": "knowdefend_session",
+    "SESSION_TTL_HOURS": "24",
+    "MAGIC_LINK_TTL_MINUTES": "15",
+    "CONTACT_THROTTLE_SECONDS": "60",
+    "MAGIC_LINK_THROTTLE_SECONDS": "60"
+  }
+}

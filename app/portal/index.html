@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Defense Security client portal access.">
+    <title>Defense Security LLC | Portal</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="portal-page">
+    <header class="site-header">
+        <a class="brand" href="../index.html">
+            <img src="../assets/defense-security-mark.svg" alt="" width="36" height="36">
+            <span>Defense Security LLC</span>
+        </a>
+        <nav class="site-nav">
+            <a href="../index.html">Home</a>
+            <a href="#auth">Auth</a>
+            <a href="#documents">Documents</a>
+        </nav>
+    </header>
+
+    <main class="site-main">
+        <section class="section-title portal-intro">
+            <p class="eyebrow">Secure Portal</p>
+            <h1 class="portal-heading">Magic-link access for client material and future secure features</h1>
+            <p class="portal-copy">
+                This portal is designed to sit behind Azure Functions, Cosmos DB, and Key Vault.
+                Authentication uses email-based magic links so you can avoid password handling in v1.
+            </p>
+        </section>
+
+        <section class="portal-layout" id="auth">
+            <article class="contact-panel">
+                <p class="eyebrow">Current Plan</p>
+                <h2>Auth flow</h2>
+                <ul>
+                    <li>User requests access with email.</li>
+                    <li>Azure Function issues a short-lived magic link.</li>
+                    <li>Resend delivers the login email.</li>
+                    <li>Cosmos DB stores users, pending links, and sessions.</li>
+                    <li>Blob Storage can later hold private documents tied to the account.</li>
+                </ul>
+            </article>
+
+            <form class="contact-form portal-form js-auth-form" novalidate>
+                <label class="honeypot" aria-hidden="true">
+                    Website
+                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                </label>
+                <label class="full-width">
+                    Work Email
+                    <input type="email" name="email" autocomplete="email" maxlength="254" required placeholder="name@company.com">
+                </label>
+                <label>
+                    Full Name
+                    <input type="text" name="name" autocomplete="name" minlength="2" maxlength="120" placeholder="Optional for first request">
+                </label>
+                <label>
+                    Company
+                    <input type="text" name="company" autocomplete="organization" maxlength="120">
+                </label>
+                <div class="form-actions">
+                    <button class="button button-primary" type="submit">Send Magic Link</button>
+                    <button class="button button-secondary js-logout-button" type="button">Sign Out</button>
+                    <p class="form-status js-auth-status" aria-live="polite"></p>
+                </div>
+            </form>
+        </section>
+
+        <section class="section" id="documents">
+            <div class="section-title">
+                <p class="eyebrow">Documents</p>
+                <h2>Blob-backed document space for future case studies and client deliverables</h2>
+            </div>
+            <div class="platform-layout">
+                <article class="service-block accent-cyan">
+                    <h3>Public Assets</h3>
+                    <p>Case studies, one-pagers, and technical summaries can live in a public Blob container with Cosmos metadata.</p>
+                </article>
+                <article class="service-block accent-green">
+                    <h3>Private Assets</h3>
+                    <p>Client material should stay in a private Blob container and be exposed only through signed access or backend-controlled downloads.</p>
+                </article>
+                <article class="service-block accent-gold">
+                    <h3>Portal Session</h3>
+                    <p class="js-session-summary">No active session detected yet. Once auth is wired with Azure settings, this area can load user-specific content.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="../scripts/portal.js"></script>
+</body>
+</html>

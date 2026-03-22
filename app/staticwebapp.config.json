@@ -1,0 +1,31 @@
+{
+  "routes": [
+    {
+      "route": "/portal",
+      "serve": "/portal/index.html",
+      "statusCode": 200
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/assets/*",
+      "/scripts/*",
+      "/portal/*",
+      "/api/*"
+    ]
+  },
+  "responseOverrides": {
+    "401": {
+      "rewrite": "/portal/index.html",
+      "statusCode": 401
+    }
+  },
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "X-Frame-Options": "DENY",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+    "Content-Security-Policy": "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+  }
+}

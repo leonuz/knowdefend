@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Defense Security LLC provides cybersecurity consulting, penetration testing, AI security reviews, and incident readiness support.">
+    <title>Defense Security LLC</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="landing-page">
+    <header class="site-header">
+        <a class="brand" href="./index.html">
+            <img src="./assets/defense-security-mark.svg" alt="" width="36" height="36">
+            <span>Defense Security LLC</span>
+        </a>
+        <nav class="site-nav">
+            <a href="#services">Services</a>
+            <a href="#ai-security">AI Security</a>
+            <a href="./portal/">Portal</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main class="site-main">
+        <section class="hero">
+            <div class="hero-grid"></div>
+            <div class="hero-inner">
+                <p class="eyebrow">Attack Surface. Testing. AI Security.</p>
+                <div class="glitch-wrap" aria-hidden="true">
+                    <span class="glitch-copy glitch-copy-a">Defense Security</span>
+                    <span class="glitch-copy glitch-copy-b">Defense Security</span>
+                    <h1>Defense Security</h1>
+                </div>
+                <p class="hero-copy">
+                    Practical offensive and defensive security services for organizations that need a tighter posture,
+                    clearer reporting, and better decisions before incidents force them.
+                </p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#contact">Request an assessment</a>
+                    <a class="button button-secondary" href="./portal/">Client portal</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="metrics">
+            <article class="metric-card metric-cyan">
+                <span>Focus</span>
+                <strong>Realistic attack paths</strong>
+            </article>
+            <article class="metric-card metric-gold">
+                <span>Output</span>
+                <strong>Findings teams can fix</strong>
+            </article>
+            <article class="metric-card metric-green">
+                <span>Coverage</span>
+                <strong>Cloud, apps, users, AI workflows</strong>
+            </article>
+        </section>
+
+        <section class="section" id="services">
+            <div class="section-title">
+                <p class="eyebrow">Capabilities</p>
+                <h2>Security services with a technical point of view</h2>
+            </div>
+            <div class="service-layout">
+                <article class="service-block accent accent-cyan">
+                    <h3>Vulnerability Reviews</h3>
+                    <p>External and internal exposure review across hosts, web applications, cloud assets, and configuration weaknesses.</p>
+                </article>
+                <article class="service-block accent-gold">
+                    <h3>Penetration Testing</h3>
+                    <p>Manual validation of exploitability, lateral movement potential, control gaps, and remediation priorities.</p>
+                </article>
+                <article class="service-block accent-red">
+                    <h3>Phishing Exposure</h3>
+                    <p>Human-layer testing and awareness signal analysis to reveal where attackers are most likely to get traction.</p>
+                </article>
+                <article class="service-block accent-green">
+                    <h3>Incident Readiness</h3>
+                    <p>Preparation for escalation, containment, communications, and operational continuity before something breaks.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section ai-section" id="ai-security">
+            <div class="section-title">
+                <p class="eyebrow">AI Security</p>
+                <h2>Review LLMs, copilots, and AI-enabled workflows as systems with privileges</h2>
+            </div>
+            <div class="ai-layout">
+                <article class="ai-panel">
+                    <h3>Why it matters</h3>
+                    <p>
+                        AI systems can access data, call tools, summarize sensitive material, and influence operator decisions.
+                        Security review needs to cover model behavior, integration points, trust boundaries, and abuse paths.
+                    </p>
+                </article>
+                <article class="ai-panel">
+                    <h3>What gets assessed</h3>
+                    <ul>
+                        <li>Prompt injection and contextual manipulation</li>
+                        <li>Connector, plugin, and tool execution safety</li>
+                        <li>Secrets, logs, and retrieval data leakage</li>
+                        <li>Approval workflows and output trust assumptions</li>
+                        <li>Third-party AI platform governance risk</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <p class="eyebrow">Platform Direction</p>
+                <h2>Public site, secure portal, clean Azure surface area</h2>
+            </div>
+            <div class="platform-layout">
+                <article class="service-block accent-cyan">
+                    <h3>Public Site</h3>
+                    <p>Marketing pages, service descriptions, downloadable case studies, and contact intake.</p>
+                </article>
+                <article class="service-block accent-green">
+                    <h3>Secure Portal</h3>
+                    <p>Magic-link authentication, session-backed access, and a future home for shared client documents.</p>
+                </article>
+                <article class="service-block accent-gold">
+                    <h3>Azure Backend</h3>
+                    <p>Functions for contact and auth, Cosmos DB for users and sessions, Blob Storage for documents, and Key Vault for secrets.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="section contact-section" id="contact">
+            <div class="section-title">
+                <p class="eyebrow">Contact</p>
+                <h2>Start with a clear request, not a generic intake queue</h2>
+            </div>
+            <div class="contact-layout">
+                <article class="contact-panel">
+                    <h3>What to send</h3>
+                    <p>
+                        A useful first message usually includes your environment type, what changed recently, and whether you need an assessment,
+                        testing, AI review, or incident support.
+                    </p>
+                    <ul>
+                        <li>Company or project name</li>
+                        <li>Primary concern or objective</li>
+                        <li>Target systems or AI workflow in scope</li>
+                        <li>Desired timeline</li>
+                    </ul>
+                    <p class="contact-direct">Direct email: <a href="mailto:info@knowdefend.com">info@knowdefend.com</a></p>
+                </article>
+
+                <form class="contact-form js-contact-form" novalidate>
+                    <label class="honeypot" aria-hidden="true">
+                        Website
+                        <input type="text" name="website" tabindex="-1" autocomplete="off">
+                    </label>
+                    <label>
+                        Name
+                        <input type="text" name="name" autocomplete="name" minlength="2" maxlength="120" required>
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" autocomplete="email" maxlength="254" required>
+                    </label>
+                    <label>
+                        Company
+                        <input type="text" name="company" autocomplete="organization" maxlength="120">
+                    </label>
+                    <label>
+                        Service Needed
+                        <select name="service" required>
+                            <option value="">Select one</option>
+                            <option value="assessment">Vulnerability Assessment</option>
+                            <option value="pentest">Penetration Testing</option>
+                            <option value="phishing">Phishing Assessment</option>
+                            <option value="incident">Incident Readiness</option>
+                            <option value="ai-security">AI Security Review</option>
+                        </select>
+                    </label>
+                    <label class="full-width">
+                        Project Details
+                        <textarea name="message" rows="6" minlength="20" maxlength="3000" required placeholder="Briefly describe the environment, what you need reviewed, and your timeline."></textarea>
+                    </label>
+                    <div class="form-actions">
+                        <button class="button button-primary" type="submit">Send Request</button>
+                        <p class="form-status js-contact-status" aria-live="polite"></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="footer-callout">
+            <p class="eyebrow">Portal + Assets</p>
+            <h2>Documents and future client materials can live in Azure Blob Storage, not in the public repo.</h2>
+            <img class="footer-mark" src="./assets/defense-security-mark.svg" alt="Defense Security logo" width="144" height="144">
+            <p>Client access starts in the <a href="./portal/">secure portal</a>.</p>
+        </section>
+    </main>
+
+    <script src="./scripts/main.js"></script>
+</body>
+</html>

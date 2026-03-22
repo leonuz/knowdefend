@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">Defense Security mark</title>
+  <desc id="desc">Shield-shaped logo with a hexagonal core and signal lines.</desc>
+  <defs>
+    <linearGradient id="shieldStroke" x1="12" y1="10" x2="84" y2="84" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6be4ff"/>
+      <stop offset="0.55" stop-color="#69f0ae"/>
+      <stop offset="1" stop-color="#f5b94c"/>
+    </linearGradient>
+    <linearGradient id="coreFill" x1="30" y1="26" x2="67" y2="69" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#07111d"/>
+      <stop offset="1" stop-color="#11233a"/>
+    </linearGradient>
+  </defs>
+  <rect width="96" height="96" rx="22" fill="#050a12"/>
+  <path d="M48 10 76 20v22c0 18.9-11.9 34.1-28 41-16.1-6.9-28-22.1-28-41V20L48 10Z" fill="none" stroke="url(#shieldStroke)" stroke-width="5"/>
+  <path d="M48 28 61 36v16L48 60 35 52V36l13-8Z" fill="url(#coreFill)" stroke="#6be4ff" stroke-opacity=".55" stroke-width="2"/>
+  <path d="M48 29v31M36.5 37.3 48 44l11.5-6.7M36.5 50.7 48 44l11.5 6.7" stroke="#f4f7fb" stroke-opacity=".85" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48" cy="44" r="2.6" fill="#f5b94c"/>
+</svg>

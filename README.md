@@ -2,7 +2,7 @@
 
 KnowDefend is the web platform for Defense Security LLC.
 
-The project is being rebuilt as a clean Azure-based stack with:
+The project uses a clean Azure-based stack with:
 
 - a public marketing site
 - a secure client portal
@@ -121,7 +121,11 @@ The GitHub workflow is configured in:
 
 ## Status
 
-This is still a work in progress.
+The rebuilt site is deployed and serving production traffic.
 
-Core frontend, portal scaffolding, validation, and initial security controls are already in place.
-Azure resource integration and end-to-end production setup are still pending.
+- public site: `https://www.knowdefend.com/`
+- portal: `https://www.knowdefend.com/portal/`
+- contact flow: working
+- magic-link auth flow: working
+
+Blob-backed document delivery, telemetry wiring, and infrastructure cleanup are still pending.

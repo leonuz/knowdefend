@@ -157,6 +157,8 @@ Set these in the Static Web App production environment:
 - `COSMOS_DB_CONTAINER_AUTH=auth`
 - `COSMOS_DB_CONTAINER_LEADS=leads`
 - `COSMOS_DB_CONTAINER_DOCUMENTS=documents`
+- `BLOB_STORAGE_CONNECTION_STRING`
+- `BLOB_CONTAINER_PRIVATE_DOCS=private-docs`
 - `SESSION_COOKIE_NAME=knowdefend_session`
 - `SESSION_TTL_HOURS=24`
 - `MAGIC_LINK_TTL_MINUTES=15`
@@ -198,6 +200,17 @@ npx func start --port 7172
 - confirm magic-link login creates a session and signs in the portal
 - confirm logout clears the session
 - confirm response headers include CSP, frame protection, and referrer policy
+
+## Private docs sync
+
+Once `BLOB_STORAGE_CONNECTION_STRING` and `BLOB_CONTAINER_PRIVATE_DOCS` are configured, internal documentation can be uploaded to the private Blob container and registered in Cosmos with:
+
+```bash
+cd api
+npm run docs:sync-private
+```
+
+That script uploads the current internal docs and creates private metadata records in Cosmos `documents`.
 
 ## Immediate next tasks
 

@@ -72,21 +72,32 @@
         <section class="section" id="documents">
             <div class="section-title">
                 <p class="eyebrow">Documents</p>
-                <h2>Blob-backed document space for future case studies and client deliverables</h2>
+                <h2>Authenticated document space backed by Cosmos metadata and private Blob storage</h2>
             </div>
             <div class="platform-layout">
                 <article class="service-block accent-cyan">
-                    <h3>Public Assets</h3>
-                    <p>Case studies, one-pagers, and technical summaries can live in a public Blob container with Cosmos metadata.</p>
+                    <h3>Access Model</h3>
+                    <p>Authenticated users can list private documents through the portal. Each download is authorized by the backend before Blob access is allowed.</p>
                 </article>
                 <article class="service-block accent-green">
-                    <h3>Private Assets</h3>
-                    <p>Client material should stay in a private Blob container and be exposed only through signed access or backend-controlled downloads.</p>
+                    <h3>Private Blob</h3>
+                    <p>Client material stays in a private Blob container. Public exposure is avoided by routing access through Azure Functions.</p>
                 </article>
                 <article class="service-block accent-gold">
                     <h3>Portal Session</h3>
                     <p class="js-session-summary">No active session detected yet. Once auth is wired with Azure settings, this area can load user-specific content.</p>
                 </article>
+            </div>
+            <div class="document-panel">
+                <div class="document-panel-header">
+                    <div>
+                        <p class="eyebrow">Authenticated Library</p>
+                        <h3>Available private documents</h3>
+                    </div>
+                    <button class="button button-secondary js-documents-refresh" type="button">Refresh</button>
+                </div>
+                <p class="document-status js-document-status" aria-live="polite">Sign in to load your available documents.</p>
+                <div class="document-list js-document-list" aria-live="polite"></div>
             </div>
         </section>
     </main>

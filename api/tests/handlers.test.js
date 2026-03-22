@@ -2,6 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 
 const contact = require("../contact");
+const documents = require("../documents");
 const requestMagicLink = require("../request-magic-link");
 const verifyMagicLink = require("../verify-magic-link");
 
@@ -60,4 +61,15 @@ test("verify magic link rejects malformed token", async () => {
     });
 
     assert.equal(context.res.status, 400);
+});
+
+test("documents requires authentication", async () => {
+    const context = createContext();
+
+    await documents(context, {
+        headers: {},
+    });
+
+    assert.equal(context.res.status, 401);
+    assert.match(context.res.body.error, /authentication required/i);
 });

@@ -157,6 +157,8 @@ Estas variables deben existir en el entorno Production de la Static Web App:
 - `COSMOS_DB_CONTAINER_AUTH=auth`
 - `COSMOS_DB_CONTAINER_LEADS=leads`
 - `COSMOS_DB_CONTAINER_DOCUMENTS=documents`
+- `BLOB_STORAGE_CONNECTION_STRING`
+- `BLOB_CONTAINER_PRIVATE_DOCS=private-docs`
 - `SESSION_COOKIE_NAME=knowdefend_session`
 - `SESSION_TTL_HOURS=24`
 - `MAGIC_LINK_TTL_MINUTES=15`
@@ -198,6 +200,17 @@ npx func start --port 7172
 - confirmar que el magic link crea sesión y autentica el portal
 - confirmar que logout elimina la sesión
 - confirmar que las respuestas incluyen CSP y otros headers de seguridad
+
+## Sincronización de documentos privados
+
+Cuando `BLOB_STORAGE_CONNECTION_STRING` y `BLOB_CONTAINER_PRIVATE_DOCS` estén configurados, la documentación interna puede cargarse al Blob privado y registrarse en Cosmos con:
+
+```bash
+cd api
+npm run docs:sync-private
+```
+
+Ese script sube los documentos internos actuales y crea registros privados de metadata en Cosmos `documents`.
 
 ## Próximas tareas inmediatas
 

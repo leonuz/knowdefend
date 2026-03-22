@@ -14,6 +14,8 @@
     "COSMOS_DB_CONTAINER_AUTH": "auth",
     "COSMOS_DB_CONTAINER_LEADS": "leads",
     "COSMOS_DB_CONTAINER_DOCUMENTS": "documents",
+    "BLOB_STORAGE_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=yourstorage;AccountKey=yourkey;EndpointSuffix=core.windows.net",
+    "BLOB_CONTAINER_PRIVATE_DOCS": "private-docs",
     "SESSION_COOKIE_NAME": "knowdefend_session",
     "SESSION_TTL_HOURS": "24",
     "MAGIC_LINK_TTL_MINUTES": "15",

@@ -17,6 +17,8 @@ const requiredKeys = [
     "COSMOS_DB_CONTAINER_AUTH",
     "COSMOS_DB_CONTAINER_LEADS",
     "COSMOS_DB_CONTAINER_DOCUMENTS",
+    "BLOB_STORAGE_CONNECTION_STRING",
+    "BLOB_CONTAINER_PRIVATE_DOCS",
     "SESSION_COOKIE_NAME",
     "SESSION_TTL_HOURS",
     "MAGIC_LINK_TTL_MINUTES",
@@ -69,7 +71,7 @@ if (values.APP_BASE_URL && !/^https?:\/\/[^/]+(?:\/.*)?$/.test(values.APP_BASE_U
     fail("APP_BASE_URL must be a valid absolute URL");
 }
 
-for (const key of ["RESEND_API_KEY", "COSMOS_DB_ENDPOINT", "COSMOS_DB_KEY", "RESEND_FROM_EMAIL"]) {
+for (const key of ["RESEND_API_KEY", "COSMOS_DB_ENDPOINT", "COSMOS_DB_KEY", "RESEND_FROM_EMAIL", "BLOB_STORAGE_CONNECTION_STRING"]) {
     const value = String(values[key] || "").trim();
     if (placeholderPatterns.some((pattern) => pattern.test(value))) {
         warn(`${key} still contains a placeholder value`);

@@ -10,6 +10,7 @@ const defaults = {
     authContainer: "auth",
     leadsContainer: "leads",
     documentsContainer: "documents",
+    blobPrivateContainer: "private-docs",
 };
 
 function required(name) {
@@ -35,6 +36,8 @@ function readConfig() {
         authContainer: process.env.COSMOS_DB_CONTAINER_AUTH || defaults.authContainer,
         leadsContainer: process.env.COSMOS_DB_CONTAINER_LEADS || defaults.leadsContainer,
         documentsContainer: process.env.COSMOS_DB_CONTAINER_DOCUMENTS || defaults.documentsContainer,
+        blobStorageConnectionString: process.env.BLOB_STORAGE_CONNECTION_STRING || process.env.AzureWebJobsStorage || "",
+        blobPrivateContainer: process.env.BLOB_CONTAINER_PRIVATE_DOCS || defaults.blobPrivateContainer,
         sessionCookieName: process.env.SESSION_COOKIE_NAME || defaults.sessionCookieName,
         sessionTtlHours: Number(process.env.SESSION_TTL_HOURS || defaults.sessionTtlHours),
         magicLinkTtlMinutes: Number(process.env.MAGIC_LINK_TTL_MINUTES || defaults.magicLinkTtlMinutes),

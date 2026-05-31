@@ -7,6 +7,7 @@
     "RESEND_API_KEY": "re_xxx",
     "RESEND_FROM_EMAIL": "Defense Security <noreply@yourdomain.com>",
     "CONTACT_TO_EMAIL": "info@knowdefend.com",
+    "ADMIN_API_TOKEN": "replace-with-a-long-random-admin-token",
     "COSMOS_DB_ENDPOINT": "https://your-account.documents.azure.com:443/",
     "COSMOS_DB_KEY": "your-key",
     "COSMOS_DB_DATABASE": "knowdefend",

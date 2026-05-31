@@ -104,6 +104,8 @@ npm run user:status -- client@example.com approved "Client Name" "Client Company
 npm run user:status -- client@example.com disabled
 ```
 
+You can also use the admin dashboard at `/admin/`. Configure `ADMIN_API_TOKEN` as a long random application setting in Azure Static Web Apps, then paste that token into the dashboard to list pending users and change their status.
+
 ## Security status
 
 The project already includes:

@@ -4,6 +4,11 @@
       "route": "/portal",
       "serve": "/portal/index.html",
       "statusCode": 200
+    },
+    {
+      "route": "/admin",
+      "serve": "/admin/index.html",
+      "statusCode": 200
     }
   ],
   "navigationFallback": {
@@ -12,6 +17,7 @@
       "/assets/*",
       "/scripts/*",
       "/portal/*",
+      "/admin/*",
       "/api/*"
     ]
   },

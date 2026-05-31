@@ -104,6 +104,8 @@ npm run user:status -- cliente@example.com approved "Nombre Cliente" "Empresa Cl
 npm run user:status -- cliente@example.com disabled
 ```
 
+También puedes usar el dashboard administrativo en `/admin/`. Configura `ADMIN_API_TOKEN` como un application setting largo y aleatorio en Azure Static Web Apps, y luego pega ese token en el dashboard para listar usuarios pendientes y cambiar su estado.
+
 ## Estado de seguridad
 
 El proyecto ya incluye:

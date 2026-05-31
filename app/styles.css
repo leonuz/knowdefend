@@ -614,6 +614,109 @@ a {
     text-transform: uppercase;
 }
 
+.admin-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel-soft);
+}
+
+.admin-toolbar label {
+    display: grid;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.admin-toolbar select {
+    min-width: 180px;
+    border: 1px solid rgba(136, 179, 255, 0.22);
+    border-radius: 14px;
+    background: rgba(2, 8, 15, 0.72);
+    color: var(--text);
+    padding: 12px 14px;
+    font: inherit;
+}
+
+.admin-create-form {
+    margin-bottom: 18px;
+}
+
+.admin-user-list {
+    display: grid;
+    gap: 14px;
+}
+
+.admin-user-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 16px;
+    align-items: center;
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.admin-user-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.admin-user-heading h4 {
+    margin: 0;
+}
+
+.admin-user-card p {
+    margin: 0 0 6px;
+    color: var(--muted);
+}
+
+.admin-user-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 0 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--text);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.status-approved {
+    border-color: rgba(105, 240, 174, 0.35);
+    color: var(--success);
+}
+
+.status-pending {
+    border-color: rgba(245, 185, 76, 0.35);
+    color: var(--accent-3);
+}
+
+.status-disabled {
+    border-color: rgba(255, 95, 141, 0.35);
+    color: var(--danger);
+}
+
 @keyframes glitch-a {
     0%, 78%, 100% { opacity: 0; transform: translate(0, 0); }
     80% { opacity: 0.6; transform: translate(-3px, 0); }
@@ -656,5 +759,13 @@ a {
 
     .document-card {
         grid-template-columns: 1fr;
+    }
+
+    .admin-user-card {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-user-actions {
+        justify-content: flex-start;
     }
 }

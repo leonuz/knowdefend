@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Defense Security portal administration.">
+    <title>Defense Security LLC | Admin</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="portal-page admin-page">
+    <header class="site-header">
+        <a class="brand" href="../index.html">
+            <img src="../assets/defense-security-mark.svg" alt="" width="36" height="36">
+            <span>Defense Security LLC</span>
+        </a>
+        <nav class="site-nav">
+            <a href="../index.html">Home</a>
+            <a href="../portal/">Portal</a>
+            <a href="#users">Users</a>
+        </nav>
+    </header>
+
+    <main class="site-main">
+        <section class="section-title portal-intro">
+            <p class="eyebrow">Admin Dashboard</p>
+            <h1 class="portal-heading">Approve client emails before portal access</h1>
+            <p class="portal-copy">
+                Manage portal user status. Unknown emails remain pending until an administrator approves them.
+            </p>
+        </section>
+
+        <section class="portal-layout" id="auth">
+            <article class="contact-panel">
+                <p class="eyebrow">Admin Access</p>
+                <h2>Token-protected controls</h2>
+                <p>
+                    Enter the admin API token for this browser session. The token is kept in session storage and sent only as an API header.
+                </p>
+            </article>
+
+            <form class="contact-form admin-token-form js-admin-token-form" novalidate>
+                <label class="full-width">
+                    Admin API Token
+                    <input type="password" name="token" autocomplete="off" required>
+                </label>
+                <div class="form-actions full-width">
+                    <button class="button button-primary" type="submit">Unlock Dashboard</button>
+                    <button class="button button-secondary js-admin-lock" type="button">Lock</button>
+                    <p class="form-status js-admin-status" aria-live="polite"></p>
+                </div>
+            </form>
+        </section>
+
+        <section class="section" id="users">
+            <div class="section-title">
+                <p class="eyebrow">Portal Users</p>
+                <h2>Review, approve, or disable client accounts</h2>
+            </div>
+
+            <div class="admin-toolbar">
+                <label>
+                    Status
+                    <select class="js-admin-filter">
+                        <option value="all">All</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="disabled">Disabled</option>
+                    </select>
+                </label>
+                <button class="button button-secondary js-admin-refresh" type="button">Refresh</button>
+            </div>
+
+            <form class="contact-form admin-create-form js-admin-create-form" novalidate>
+                <label>
+                    Email
+                    <input type="email" name="email" autocomplete="email" maxlength="254" required>
+                </label>
+                <label>
+                    Status
+                    <select name="status" required>
+                        <option value="approved">Approved</option>
+                        <option value="pending">Pending</option>
+                        <option value="disabled">Disabled</option>
+                    </select>
+                </label>
+                <label>
+                    Name
+                    <input type="text" name="name" autocomplete="name" minlength="2" maxlength="120">
+                </label>
+                <label>
+                    Company
+                    <input type="text" name="company" autocomplete="organization" maxlength="120">
+                </label>
+                <div class="form-actions full-width">
+                    <button class="button button-primary" type="submit">Save User</button>
+                    <p class="form-status js-admin-create-status" aria-live="polite"></p>
+                </div>
+            </form>
+
+            <div class="document-panel admin-users-panel">
+                <div class="document-panel-header">
+                    <div>
+                        <p class="eyebrow">Access Queue</p>
+                        <h3>Users</h3>
+                    </div>
+                </div>
+                <p class="document-status js-admin-users-status" aria-live="polite">Unlock the dashboard to load users.</p>
+                <div class="admin-user-list js-admin-user-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../scripts/admin.js"></script>
+</body>
+</html>

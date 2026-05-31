@@ -31,7 +31,20 @@ async function getAuthenticatedSession(req) {
         return { authenticated: false, reason: "invalid_session" };
     }
 
-    const { resource: user } = await users.item(`user_${session.email}`, "user").read();
+    let user = null;
+
+    try {
+        const { resource } = await users.item(`user_${session.email}`, "user").read();
+        user = resource || null;
+    } catch (error) {
+        if (error.code !== 404) {
+            throw error;
+        }
+    }
+
+    if (!user || (user.status !== "approved" && user.approved !== true)) {
+        return { authenticated: false, reason: "user_not_approved" };
+    }
 
     return {
         authenticated: true,

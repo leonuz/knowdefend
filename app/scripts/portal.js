@@ -97,6 +97,21 @@ function renderDocuments(items) {
     }).join("");
 }
 
+function showAuthRedirectStatus() {
+    const params = new URLSearchParams(window.location.search);
+    const auth = params.get("auth");
+
+    if (auth === "unauthorized") {
+        updateStatus("This email is not approved for portal access yet.", "is-error");
+    } else if (auth === "invalid") {
+        updateStatus("That sign-in link is invalid or already used.", "is-error");
+    } else if (auth === "expired") {
+        updateStatus("That sign-in link has expired. Request a new link.", "is-error");
+    } else if (auth === "success") {
+        updateStatus("Signed in successfully.", "is-success");
+    }
+}
+
 async function loadDocuments() {
     if (!documentList) {
         return;
@@ -212,3 +227,4 @@ if (refreshDocumentsButton) {
 }
 
 loadSession();
+showAuthRedirectStatus();

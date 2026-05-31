@@ -93,13 +93,25 @@ npx func start --port 7172
 
 Necesitarás un `local.settings.json` real basado en `api/local.settings.example.json` para probar el flujo completo del backend.
 
+### Control de acceso al portal
+
+El acceso al portal queda cerrado por defecto. El endpoint de magic link registra emails desconocidos como `pending` y solo envía enlaces de inicio de sesión a usuarios con `status: "approved"` en Cosmos DB.
+
+Aprobar o deshabilitar un usuario desde `api/`:
+
+```bash
+npm run user:status -- cliente@example.com approved "Nombre Cliente" "Empresa Cliente"
+npm run user:status -- cliente@example.com disabled
+```
+
 ## Estado de seguridad
 
 El proyecto ya incluye:
 
 - validación del lado cliente y servidor
 - campos honeypot para rechazar bots básicos
-- diseño inicial de throttling de solicitudes
+- throttling de solicitudes para contacto y acceso al portal
+- control explícito de usuarios aprobados para magic links del portal
 - tokens hash para magic links y sesiones
 - cookies seguras
 - headers de seguridad restrictivos

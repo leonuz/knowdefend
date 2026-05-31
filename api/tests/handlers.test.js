@@ -7,11 +7,108 @@ const requestMagicLink = require("../request-magic-link");
 const verifyMagicLink = require("../verify-magic-link");
 
 function createContext() {
+    function log() {}
+    log.warn = function warn() {};
+    log.error = function error() {};
+
     return {
-        log: {
-            error() {},
-        },
+        log,
         res: null,
+    };
+}
+
+function createNotFoundError() {
+    const error = new Error("Not found");
+    error.code = 404;
+    return error;
+}
+
+function createFakeContainer(seed = {}) {
+    const records = new Map(Object.entries(seed));
+
+    return {
+        records,
+        item(id) {
+            return {
+                async read() {
+                    if (!records.has(id)) {
+                        throw createNotFoundError();
+                    }
+
+                    return { resource: records.get(id) };
+                },
+                async delete() {
+                    records.delete(id);
+                },
+            };
+        },
+        items: {
+            async upsert(record) {
+                records.set(record.id, record);
+                return { resource: record };
+            },
+        },
+    };
+}
+
+function loadRequestMagicLinkWithMocks(containers, sentEmails) {
+    const requestPath = require.resolve("../request-magic-link");
+    const cosmosPath = require.resolve("../shared/cosmos");
+    const resendPath = require.resolve("resend");
+    const originalCosmos = require.cache[cosmosPath];
+    const originalResend = require.cache[resendPath];
+    const originalRequest = require.cache[requestPath];
+
+    delete require.cache[requestPath];
+    require.cache[cosmosPath] = {
+        id: cosmosPath,
+        filename: cosmosPath,
+        loaded: true,
+        exports: {
+            getContainers: async () => containers,
+        },
+    };
+    require.cache[resendPath] = {
+        id: resendPath,
+        filename: resendPath,
+        loaded: true,
+        exports: {
+            Resend: class {
+                constructor() {}
+
+                emails = {
+                    send: async (message) => {
+                        sentEmails.push(message);
+                        return { id: "email_test" };
+                    },
+                };
+            },
+        },
+    };
+
+    const handler = require("../request-magic-link");
+
+    return {
+        handler,
+        restore() {
+            delete require.cache[requestPath];
+
+            if (originalCosmos) {
+                require.cache[cosmosPath] = originalCosmos;
+            } else {
+                delete require.cache[cosmosPath];
+            }
+
+            if (originalResend) {
+                require.cache[resendPath] = originalResend;
+            } else {
+                delete require.cache[resendPath];
+            }
+
+            if (originalRequest) {
+                require.cache[requestPath] = originalRequest;
+            }
+        },
     };
 }
 
@@ -48,6 +145,94 @@ test("request magic link rejects malformed email before external dependencies", 
     });
 
     assert.equal(context.res.status, 400);
+});
+
+test("request magic link records pending access but does not email unapproved users", async () => {
+    const context = createContext();
+    const users = createFakeContainer();
+    const auth = createFakeContainer();
+    const sentEmails = [];
+    const { handler, restore } = loadRequestMagicLinkWithMocks({
+        users,
+        auth,
+        config: {
+            magicLinkThrottleSeconds: 60,
+            magicLinkTtlMinutes: 15,
+            appBaseUrl: "https://www.knowdefend.com",
+            resendApiKey: "test",
+            resendFromEmail: "Defense Security <noreply@example.com>",
+        },
+    }, sentEmails);
+
+    try {
+        await handler(context, {
+            headers: {
+                "content-type": "application/json",
+                "x-forwarded-for": "203.0.113.10",
+            },
+            body: {
+                email: "new.client@example.com",
+                name: "New Client",
+                company: "Example Co",
+            },
+        });
+
+        assert.equal(context.res.status, 200);
+        assert.match(context.res.body.message, /approved/i);
+        assert.equal(sentEmails.length, 0);
+        assert.equal(users.records.get("user_new.client@example.com").status, "pending");
+        assert.equal(auth.records.size, 3);
+    } finally {
+        restore();
+    }
+});
+
+test("request magic link emails approved users", async () => {
+    const context = createContext();
+    const users = createFakeContainer({
+        "user_approved@example.com": {
+            id: "user_approved@example.com",
+            type: "user",
+            email: "approved@example.com",
+            name: "Approved User",
+            company: "Example Co",
+            status: "approved",
+            createdAt: "2026-01-01T00:00:00.000Z",
+        },
+    });
+    const auth = createFakeContainer();
+    const sentEmails = [];
+    const { handler, restore } = loadRequestMagicLinkWithMocks({
+        users,
+        auth,
+        config: {
+            magicLinkThrottleSeconds: 60,
+            magicLinkTtlMinutes: 15,
+            appBaseUrl: "https://www.knowdefend.com",
+            resendApiKey: "test",
+            resendFromEmail: "Defense Security <noreply@example.com>",
+        },
+    }, sentEmails);
+
+    try {
+        await handler(context, {
+            headers: {
+                "content-type": "application/json",
+                "x-forwarded-for": "203.0.113.11",
+            },
+            body: {
+                email: "approved@example.com",
+            },
+        });
+
+        assert.equal(context.res.status, 200);
+        assert.match(context.res.body.message, /approved/i);
+        assert.equal(sentEmails.length, 1);
+        assert.equal(sentEmails[0].to[0], "approved@example.com");
+        assert.equal([...auth.records.values()].filter((record) => record.type === "magic_link").length, 1);
+    } finally {
+        restore();
+    }
 });
 
 test("verify magic link rejects malformed token", async () => {

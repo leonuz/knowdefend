@@ -27,7 +27,7 @@
             <h1 class="portal-heading">Magic-link access for client material and future secure features</h1>
             <p class="portal-copy">
                 This portal is designed to sit behind Azure Functions, Cosmos DB, and Key Vault.
-                Authentication uses email-based magic links so you can avoid password handling in v1.
+                Authentication uses email-based magic links for approved client accounts so you can avoid password handling in v1.
             </p>
         </section>
 
@@ -36,8 +36,9 @@
                 <p class="eyebrow">Current Plan</p>
                 <h2>Auth flow</h2>
                 <ul>
-                    <li>User requests access with email.</li>
-                    <li>Azure Function issues a short-lived magic link.</li>
+                    <li>Client account is approved before portal access is allowed.</li>
+                    <li>Approved user requests access with email.</li>
+                    <li>Azure Function issues a short-lived magic link only for approved accounts.</li>
                     <li>Resend delivers the login email.</li>
                     <li>Cosmos DB stores users, pending links, and sessions.</li>
                     <li>Blob Storage can later hold private documents tied to the account.</li>
@@ -50,7 +51,7 @@
                     <input type="text" name="website" tabindex="-1" autocomplete="off">
                 </label>
                 <label class="full-width">
-                    Work Email
+                    Approved Work Email
                     <input type="email" name="email" autocomplete="email" maxlength="254" required placeholder="name@company.com">
                 </label>
                 <label>

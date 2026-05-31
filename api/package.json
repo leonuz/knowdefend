@@ -11,7 +11,8 @@
     "start": "func start",
     "test": "node --test tests/**/*.test.js",
     "config:check": "node scripts/check-config.js",
-    "docs:sync-private": "node scripts/sync-private-docs.js"
+    "docs:sync-private": "node scripts/sync-private-docs.js",
+    "user:status": "node scripts/set-user-status.js"
   },
   "dependencies": {
     "@azure/cosmos": "^4.3.0",

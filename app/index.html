@@ -16,6 +16,7 @@
         </a>
         <nav class="site-nav">
             <a href="#services">Services</a>
+            <a href="#approach">Approach</a>
             <a href="#ai-security">AI Security</a>
             <a href="./portal/">Portal</a>
             <a href="#contact">Contact</a>
@@ -26,36 +27,91 @@
         <section class="hero">
             <div class="hero-grid"></div>
             <div class="hero-inner">
-                <p class="eyebrow">Attack Surface. Testing. AI Security.</p>
-                <div class="glitch-wrap" aria-hidden="true">
-                    <span class="glitch-copy glitch-copy-a">Defense Security</span>
-                    <span class="glitch-copy glitch-copy-b">Defense Security</span>
-                    <h1>Defense Security</h1>
+                <div class="hero-copy-block">
+                    <p class="eyebrow">Attack Surface. Testing. AI Security.</p>
+                    <div class="glitch-wrap" aria-hidden="true">
+                        <span class="glitch-copy glitch-copy-a">Defense Security</span>
+                        <span class="glitch-copy glitch-copy-b">Defense Security</span>
+                        <h1>Defense Security</h1>
+                    </div>
+                    <p class="hero-copy">
+                        Practical offensive and defensive security services for organizations that need a tighter posture,
+                        clearer reporting, and better decisions before incidents force them.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#contact">Request an assessment</a>
+                        <a class="button button-secondary" href="./portal/">Client portal</a>
+                    </div>
                 </div>
-                <p class="hero-copy">
-                    Practical offensive and defensive security services for organizations that need a tighter posture,
-                    clearer reporting, and better decisions before incidents force them.
-                </p>
-                <div class="hero-actions">
-                    <a class="button button-primary" href="#contact">Request an assessment</a>
-                    <a class="button button-secondary" href="./portal/">Client portal</a>
-                </div>
+
+                <aside class="hero-brief" aria-label="Assessment snapshot">
+                    <div class="brief-header">
+                        <span>Readiness Snapshot</span>
+                        <strong>Active Review</strong>
+                    </div>
+                    <div class="brief-radar" aria-hidden="true">
+                        <img src="./assets/defense-security-mark.svg" alt="" width="92" height="92">
+                    </div>
+                    <dl class="brief-list">
+                        <div>
+                            <dt>External exposure</dt>
+                            <dd>Inventory, reachability, known risk</dd>
+                        </div>
+                        <div>
+                            <dt>Control validation</dt>
+                            <dd>Manual testing against realistic paths</dd>
+                        </div>
+                        <div>
+                            <dt>Executive output</dt>
+                            <dd>Severity, evidence, remediation order</dd>
+                        </div>
+                    </dl>
+                </aside>
             </div>
         </section>
 
-        <section class="metrics">
-            <article class="metric-card metric-cyan">
-                <span>Focus</span>
-                <strong>Realistic attack paths</strong>
-            </article>
-            <article class="metric-card metric-gold">
-                <span>Output</span>
-                <strong>Findings teams can fix</strong>
-            </article>
-            <article class="metric-card metric-green">
-                <span>Coverage</span>
-                <strong>Cloud, apps, users, AI workflows</strong>
-            </article>
+        <section class="trust-strip" aria-label="Engagement outcomes">
+            <div>
+                <span>Assessment reports</span>
+                <strong>Evidence-led findings</strong>
+            </div>
+            <div>
+                <span>Delivery style</span>
+                <strong>Operator-led, readable, direct</strong>
+            </div>
+            <div>
+                <span>Best fit</span>
+                <strong>SMBs, teams, AI-enabled workflows</strong>
+            </div>
+        </section>
+
+        <section class="section process-section" id="approach">
+            <div class="section-title">
+                <p class="eyebrow">Engagement Model</p>
+                <h2>A clear security review from scope to retest</h2>
+            </div>
+            <div class="process-timeline">
+                <article>
+                    <span>01</span>
+                    <h3>Scope</h3>
+                    <p>Confirm systems, data sensitivity, business constraints, and success criteria before testing starts.</p>
+                </article>
+                <article>
+                    <span>02</span>
+                    <h3>Test</h3>
+                    <p>Validate weaknesses manually, document impact, and separate theoretical noise from exploitable paths.</p>
+                </article>
+                <article>
+                    <span>03</span>
+                    <h3>Report</h3>
+                    <p>Deliver clear evidence, severity rationale, and remediation steps owners can actually execute.</p>
+                </article>
+                <article>
+                    <span>04</span>
+                    <h3>Retest</h3>
+                    <p>Confirm fixes, close gaps, and help teams turn assessment output into measurable risk reduction.</p>
+                </article>
+            </div>
         </section>
 
         <section class="section" id="services">
@@ -67,18 +123,34 @@
                 <article class="service-block accent accent-cyan">
                     <h3>Vulnerability Reviews</h3>
                     <p>External and internal exposure review across hosts, web applications, cloud assets, and configuration weaknesses.</p>
+                    <ul class="service-points">
+                        <li>Asset discovery and exposure mapping</li>
+                        <li>Prioritized remediation paths</li>
+                    </ul>
                 </article>
                 <article class="service-block accent-gold">
                     <h3>Penetration Testing</h3>
                     <p>Manual validation of exploitability, lateral movement potential, control gaps, and remediation priorities.</p>
+                    <ul class="service-points">
+                        <li>Evidence-based exploit validation</li>
+                        <li>Retest-ready technical detail</li>
+                    </ul>
                 </article>
                 <article class="service-block accent-red">
                     <h3>Phishing Exposure</h3>
                     <p>Human-layer testing and awareness signal analysis to reveal where attackers are most likely to get traction.</p>
+                    <ul class="service-points">
+                        <li>Campaign design and response signal</li>
+                        <li>Control and training recommendations</li>
+                    </ul>
                 </article>
                 <article class="service-block accent-green">
                     <h3>Incident Readiness</h3>
                     <p>Preparation for escalation, containment, communications, and operational continuity before something breaks.</p>
+                    <ul class="service-points">
+                        <li>Runbooks, roles, and escalation paths</li>
+                        <li>Tabletop and readiness review</li>
+                    </ul>
                 </article>
             </div>
         </section>
